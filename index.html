@@ -1,234 +1,84 @@
-/* Configurações Gerais e Cores */
-:root {
-    --roxo-escuro: #2e1a47;
-    --roxo-principal: #6c5ce7;
-    --lilas: #a55eea;
-    --rosa: #fd79a8;
-    --rosa-claro: #ffeaa7;
-    --branco: #ffffff;
-    --fundo-card: rgba(255, 255, 255, 0.08);
-}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de senha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-body {
-    background: linear-gradient(135deg, var(--roxo-escuro) 0%, #4a148c 50%, #880e4f 100%);
-    color: var(--branco);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-/* Container Principal */
-.conteudo {
-    background: var(--fundo-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    margin: auto;
-}
-
-/* Títulos */
-.conteudo-titulo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.conteudo-titulo img {
-    width: 60px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0px 0px 8px var(--rosa));
-}
-
-.titulo-principal {
-    font-size: 1.8rem;
-    color: var(--rosa);
-    margin-bottom: 10px;
-}
-
-.titulo-secundario {
-    font-size: 1rem;
-    color: #d1c4e9;
-    font-weight: 400;
-}
-
-/* Campo de Senha */
-.conteudo-senha {
-    margin-bottom: 30px;
-}
-
-.conteudo-senha label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--lilas);
-    font-weight: bold;
-}
-
-#campo-senha {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid var(--lilas);
-    background: rgba(0, 0, 0, 0.2);
-    color: var(--branco);
-    font-size: 1.2rem;
-    text-align: center;
-    letter-spacing: 2px;
-    outline: none;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-}
-
-/* Parâmetros */
-.parametro-titulo {
-    font-size: 1.2rem;
-    color: var(--rosa);
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
-}
-
-.parametro-senha {
-    margin-bottom: 25px;
-}
-
-.parametro-senha__titulo {
-    color: #e0d0f0;
-    margin-bottom: 12px;
-    font-weight: 500;
-}
-
-/* Botões Circulares Lado a Lado */
-.parametro-senha-botoes {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Espaço entre os botões e o texto */
-}
-
-.parametro-senha__botao {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Torna o botão circular */
-    border: none;
-    background: linear-gradient(135deg, var(--lilas), var(--rosa));
-    color: var(--branco);
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.parametro-senha__botao:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
-.parametro-senha__texto {
-    font-size: 1.3rem;
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
-}
-
-/* Checkboxes Estilizados */
-.parametro-senha-checkbox {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    cursor: pointer;
-}
-
-.checkbox {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--lilas);
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.2s;
-}
-
-.checkbox:checked {
-    background-color: var(--rosa);
-    border-color: var(--rosa);
-}
-
-.checkbox:checked::before {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-/* Força da Senha */
-.parametro-senha-textos {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: #b0a0c0;
-}
-
-.barra {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 5px;
-}
-
-.forca {
-    height: 100%;
-    width: 0;
-    transition: 0.4s ease;
-}
-
-.fraca { width: 33%; background: #ff4757; }
-.media { width: 66%; background: var(--lilas); }
-.forte { width: 100%; background: #2ed573; }
-
-/* Rodapé */
-.footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.85rem;
-    color: #b39ddb;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 40px;
-}
-
-.footer strong {
-    color: var(--rosa);
-}
-
-.footer a {
-    color: var(--lilas);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer a:hover {
-    text-shadow: 0 0 5px var(--lilas);
-}
+<body>
+    <section class="conteudo">
+        <div class="conteudo-titulo">
+            <img src="cadeado.png" alt="cadeado fechado">
+            <h2 class="titulo-principal">Gerador de senhas do Mestre Buiu</h2>
+            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura seu Mala.</h3>
+        </div>
+        <div class="conteudo-senha">
+            <label for="senha">Senha</label>
+            <input name="senha" type="text" id="campo-senha" readonly>
+        </div>
+        <div class="parametro">
+            <h3 class="parametro-titulo">Personalize sua senha Cara de concha </h3>
+            <div class="parametro-coluna__senha">
+                <div class="parametro-senha">
+                    <h4 class="parametro-senha__titulo">Número de caracteres</h4>
+                    <div class="parametro-senha-botoes">
+                        <button class="parametro-senha__botao">-</button>
+                        <p class="parametro-senha__texto">12</p>
+                        <button class="parametro-senha__botao">+</button>
+                    </div>
+                </div>               
+                <div class="parametro-senha">
+                    <h4 class="parametro-senha__titulo">Características da senha</h4>
+                    <div class="parametro-senha-checkbox">
+                        <input name="maiusculo" type="checkbox" class="checkbox" checked>
+                        <label for="maiusculo">Letras maiúsculas</label>
+                    </div>
+                    <div class="parametro-senha-checkbox">
+                        <input name="minusculo" type="checkbox" class="checkbox">
+                        <label for="minusculo">Letras minúsculas</label>
+                    </div>
+                    <div class="parametro-senha-checkbox">
+                        <input name="numero" type="checkbox" class="checkbox">
+                        <label for="numero">Números</label>
+                    </div>
+                    <div class="parametro-senha-checkbox">
+                        <input name="simbolo" type="checkbox" class="checkbox">
+                        <label for="simbolo">Símbolos</label>
+                    </div>
+                </div>
+                <div class="parametro-senha">
+                    <h4 class="parametro-senha__titulo">Força da senha</h4>
+                    <div class="barra"></div>
+                    <div class="forca fraca"></div>
+                    <div class="parametro-senha-textos">
+                        <p>Fraca</p>
+                        <p>Média</p>
+                        <p>Forte</p>
+                    </div>
+                    <p class="entropia"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="main.js"></script>
+<footer class="footer">
+    <div class="container">
+        <p>
+            <strong>Gerador de Senhas do Professor Buiu </strong> • 
+            Desenvolvido por <strong>Professor Rafael biano</strong>
+        </p>
+        <p>
+            Projeto para estudo de JavaScript • 
+            <span id="ano-atual"></span>
+        </p>
+        
+        <div class="footer-links">
+            <a href="#" target="_blank">GitHub</a> • 
+        </div>
+    </div>
+</footer>
+</body> 
+</html>

@@ -1,84 +1,70 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+/* Configurações Gerais e Cores */
+:root {
+    --roxo-escuro: #2e1a47;
+    --roxo-principal: #6c5ce7;
+    --lilas: #a55eea;
+    --rosa: #fd79a8;
+    --rosa-claro: #ffeaa7;
+    --branco: #ffffff;
+    --fundo-card: rgba(255, 255, 255, 0.08);
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de senha</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-<body>
-    <section class="conteudo">
-        <div class="conteudo-titulo">
-            <img src="cadeado.png" alt="cadeado fechado">
-            <h2 class="titulo-principal">Gerador de senhas da Ge mais mais </h2>
-            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura. </h3>
-        </div>
-        <div class="conteudo-senha">
-            <label for="senha">Senha</label>
-            <input name="senha" type="text" id="campo-senha" readonly>
-        </div>
-        <div class="parametro">
-            <h3 class="parametro-titulo">Personalize sua senha querido </h3>
-            <div class="parametro-coluna__senha">
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Número de caracteres</h4>
-                    <div class="parametro-senha-botoes">
-                        <button class="parametro-senha__botao">-</button>
-                        <p class="parametro-senha__texto">12</p>
-                        <button class="parametro-senha__botao">+</button>
-                    </div>
-                </div>               
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Características da senha</h4>
-                    <div class="parametro-senha-checkbox">
-                        <input name="maiusculo" type="checkbox" class="checkbox" checked>
-                        <label for="maiusculo">Letras maiúsculas</label>
-                    </div>
-                    <div class="parametro-senha-checkbox">
-                        <input name="minusculo" type="checkbox" class="checkbox">
-                        <label for="minusculo">Letras minúsculas</label>
-                    </div>
-                    <div class="parametro-senha-checkbox">
-                        <input name="numero" type="checkbox" class="checkbox">
-                        <label for="numero">Números</label>
-                    </div>
-                    <div class="parametro-senha-checkbox">
-                        <input name="simbolo" type="checkbox" class="checkbox">
-                        <label for="simbolo">Símbolos</label>
-                    </div>
-                </div>
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Força da senha</h4>
-                    <div class="barra"></div>
-                    <div class="forca fraca"></div>
-                    <div class="parametro-senha-textos">
-                        <p>Fraca</p>
-                        <p>Média</p>
-                        <p>Forte</p>
-                    </div>
-                    <p class="entropia"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="main.js"></script>
-<footer class="footer">
-    <div class="container">
-        <p>
-            <strong>Gerador de Senhas do Professor Buiu </strong> • 
-            Desenvolvido por <strong>Professor Rafael biano</strong>
-        </p>
-        <p>
-            Projeto para estudo de JavaScript • 
-            <span id="ano-atual"></span>
-        </p>
-        
-        <div class="footer-links">
-            <a href="#" target="_blank">GitHub</a> • 
-        </div>
-    </div>
-</footer>
-</body> 
-</html>
+body {
+    background: linear-gradient(135deg, var(--roxo-escuro) 0%, #4a148c 50%, #880e4f 100%);
+    color: var(--branco);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Container Principal */
+.conteudo {
+    background: var(--fundo-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    margin: auto;
+}
+
+/* Títulos */
+.conteudo-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conteudo-titulo img {
+    width: 60px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 0px 8px var(--rosa));
+}
+
+.titulo-principal {
+    font-size: 1.8rem;
+    color: var(--rosa);
+    margin-bottom: 10px;
+}
+
+.titulo-secundario {
+    font-size: 1rem;
+    color: #d1c4e9;
+    font-weight: 400;
+}
+
+/* Campo de Senha */
+.conteudo-senha {
+    margin-bottom: 30px;
+}
